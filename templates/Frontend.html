@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+       
+       form{
+           padding-top:40px;
+           width:350px;
+           height:450px;
+           border:2.5px solid black;
+           
+           position:absolute;
+           top:50%;
+           left:50%;
+           transform:translate(-50%,-50%);
+           align-self:center;
+           color:greenyellow;
+           background-color:lightgray;
+           border-radius:5px;
+           overflow:hidden;
+       }
+       label{
+           display:inline;         
+           color:#333;
+           margin-left:20px;
+       }
+        select {
+        width:90%;
+        height:20px;
+        box-sizing:border-box;   
+        margin-left:20px;
+        margin-bottom:10px;
+        
+        }
+        input {
+            width: 90%;
+            height: 20px;
+            margin-left: 20px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 200px;
+            height: 25px;
+            
+            background-color: aqua;
+            display: block; 
+            margin: 8px auto;
+            
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <form action='/predict' method="post" >
+    <label for="industry" class="one">Select industry:</label>
+    <select id="industry" name="industry" required>
+        <option>Tata Consulting Services</option>
+        <option>Infosys</option>
+        <option>Wipro</option>
+        <option>Tech Mahindra</option>
+    </select><br>
+
+    <label for="close">Last closing price:</label><br>
+    <input type="text" id="close" name="t1" required><br>
+
+    <label for="open">Current Opening price:</label><br>
+    <input type="text" id="open" name="t2" required><br>
+
+    <label for="vwap">Enter VWAP price:</label><br>
+    <input type="text" id="vwap" name="t3" required><br>
+
+    <label for="predict">Predicted price:</label><br>
+    <input type="text" id="predict" name="t4" readonly value="{{ predicted_price }}"><br>
+
+    <button type="submit" value="PREDICT" id="submit">PREDICT</button>
+</form>
+
+
+</body>
+</html>
